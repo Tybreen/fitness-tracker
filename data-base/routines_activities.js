@@ -1,6 +1,6 @@
 const client = require(`./client.js`);
 
-const createRoutines_Activity = async (routine_id, activity_id, count) => {
+const createRoutines_Activities = async (routine_id, activity_id, count) => {
   try {
     const {
       rows: [createdCombo]
@@ -15,4 +15,4 @@ const createRoutines_Activity = async (routine_id, activity_id, count) => {
   }
 };
 
-module.exports = { createRoutines_Activity };
+module.exports = { createRoutines_Activities };

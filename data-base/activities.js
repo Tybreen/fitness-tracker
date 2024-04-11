@@ -48,7 +48,8 @@ const deleteActivity = async (id) => {
       WHERE id = '${id}'
       RETURNING *;
     `);
-    return deletedActivity;
+    if (deletedActivity) return deletedActivity;
+    else return `Failed`;
   } catch (error) {
     console.log(`MY ERROR:\n`, error);
   }

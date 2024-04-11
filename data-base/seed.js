@@ -1,7 +1,7 @@
 const client = require(`./client.js`);
 const { createRoutine } = require("./routines.js");
 const { createActivity } = require("./activities.js");
-const { createRoutines_Activity } = require("./routines_activities.js");
+const { createRoutines_Activities } = require("./routines_activities.js");
 
 const createTables = async () => {
   try {
@@ -27,7 +27,7 @@ const createTables = async () => {
       );
     `);
   } catch (error) {
-    console.log(error);
+    console.log(`MY ERROR:\n`, error);
   }
 };
 
@@ -39,7 +39,7 @@ const dropTables = async () => {
       DROP TABLE IF EXISTS activities;
     `);
   } catch (error) {
-    console.log(error);
+    console.log(`MY ERROR:\n`, error);
   }
 };
 
@@ -65,14 +65,14 @@ const syncAndSeed = async () => {
   const walking = await createActivity(`Walking`, `Walking a mile.`);
   console.log(`CREATED Activities\n`);
 
-  await createRoutines_Activity(Maddies.id, boxes.id, 100);
-  await createRoutines_Activity(Maddies.id, resting.id, 1);
-  await createRoutines_Activity(Maddies.id, walking.id, 2);
-  await createRoutines_Activity(Sammys.id, walking.id, 1);
-  await createRoutines_Activity(Tylers.id, coding.id, 6);
-  await createRoutines_Activity(Tylers.id, walking.id, 1);
-  await createRoutines_Activity(Cocos.id, resting.id, 5);
-  await createRoutines_Activity(Cocos.id, walking.id, 2);
+  await createRoutines_Activities(Maddies.id, boxes.id, 100);
+  await createRoutines_Activities(Maddies.id, resting.id, 1);
+  await createRoutines_Activities(Maddies.id, walking.id, 2);
+  await createRoutines_Activities(Sammys.id, walking.id, 1);
+  await createRoutines_Activities(Tylers.id, coding.id, 6);
+  await createRoutines_Activities(Tylers.id, walking.id, 1);
+  await createRoutines_Activities(Cocos.id, resting.id, 5);
+  await createRoutines_Activities(Cocos.id, walking.id, 2);
   console.log(`CREATED Routines_Activities`);
 
   await client.end();

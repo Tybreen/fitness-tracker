@@ -48,7 +48,8 @@ const deleteRoutine = async (id) => {
       WHERE id = '${id}'
       RETURNING *;
     `);
-    return deletedRoutine;
+    if (deletedRoutine) return deletedRoutine;
+    else return `Failed`;
   } catch (error) {
     console.log(`MY ERROR:\n`, error);
   }
